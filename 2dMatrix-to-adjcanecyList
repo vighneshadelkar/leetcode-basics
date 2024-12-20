@@ -1,23 +1,17 @@
 
-    const trust = [[1, 3], [2, 3]];
-    
-    let adjacencyList = {};
+    let adList = {};
+    let numNodes = Math.max(...edges.flat());
 
-    const numNodes = Math.max(...trust.flat());
-    const set = new Set([...trust.flat()]);
-
-
-    for (let i = 0; i < numNodes; i++) {
-
-        for (let [from, to] of trust) {
-            adjacencyList[from] = [];
-            adjacencyList[from].push(to);
-        }
+    for (let [from, to] of edges) {
+        adList[from] = [];
     }
 
+    for (let [from, to] of edges) {
+        adList[from].push(to);
+    }
+
+INPUT:
+edges:[[0,1],[0,2],[3,5],[5,4],[4,3],[1,3]]
+
 OUTPUT:
-    {
-  1: [3],
-  2: [3],
-  3: []
-}
+{ '0': [ 1, 2 ], '1': [ 3 ], '3': [ 5 ], '4': [ 3 ], '5': [ 4 ] }
